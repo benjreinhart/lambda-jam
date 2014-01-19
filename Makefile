@@ -11,4 +11,4 @@ test: build-test
 	@$(MOCHA) --reporter spec --recursive --colors
 
 build-test:
-	@$(SJS) --module $(SRCDIR)/index.js $(TESTDIR)/macro_test.sjs -o $(TESTDIR)/macro_test.js
+	@$(SJS) --module $(SRCDIR)/index.sjs $(TESTDIR)/macro_test.sjs -o $(TESTDIR)/macro_test.js
