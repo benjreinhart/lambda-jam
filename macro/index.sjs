@@ -17,13 +17,14 @@ macro λ {
       var argsReferenced = [];
 
       var body = createIdentifiers(stx);
-      var args = buildArgumentIdentifiers(argsReferenced.sort()[argsReferenced.length - 1], ctx);
+      var amountOfArgs = argsReferenced.sort(function(x, y){return +x > +y})[argsReferenced.length - 1];
+      var args = buildArgumentIdentifiers(amountOfArgs, ctx);
 
       return {args: args, body: body}
 
       function createIdentifiers(stx) {
         return stx.reduce(function(stxList, s){
-          if (s.token.type === parser.Token.Identifier && /^_[1-9]{1}/.test(s.token.value)) {
+          if (s.token.type === parser.Token.Identifier && /^_[1-9]{1}$/.test(s.token.value)) {
             var idx = s.token.value.charAt(1);
             var ident = makeIdent('_' + idx, ctx);
             argsReferenced.push(idx);
