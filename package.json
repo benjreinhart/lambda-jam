@@ -1,6 +1,6 @@
 {
     "name": "lambda-jam"
-  , "version": "0.0.2"
+  , "version": "0.0.3"
   , "description": "Add shorthand convenience functions to your JavaScript"
   , "author": "benjreinhart"
   , "engines":
